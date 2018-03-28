@@ -29,12 +29,12 @@ $game ->player['Mike']->setTaxi('12');
 $game ->player['Mike']->setTurns('28');
 $game->player['Mike']->show();
 
-$game -> create('player', 'Cheik');
-$game ->player['Cheik']->setUnderground('4');
-$game ->player['Cheik']->setBus('8');
-$game ->player['Cheik']->setTaxi('11');
-$game ->player['Cheik']->setTurns('28');
-$game->player['Cheik']->show();
+$game -> create('player', 'Cheikh');
+$game ->player['Cheikh']->setUnderground('4');
+$game ->player['Cheikh']->setBus('8');
+$game ->player['Cheikh']->setTaxi('11');
+$game ->player['Cheikh']->setTurns('28');
+$game->player['Cheikh']->show();
 
 $game -> create('player', 'Eric');
 $game ->player['Eric']->setUnderground('4');
