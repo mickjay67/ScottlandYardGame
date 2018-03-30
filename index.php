@@ -18,6 +18,8 @@ include 'Abstract_Character.php';
 include 'game.php';
 include 'player.php';
 include 'mrx.php';
+require 'cards.php';
+require 'travelLog.php';
 //include 'map-generator/map-generator.php';
 echo "What's up? Gotta start somewhere.<br><br>";
 $game = new Game();
@@ -28,21 +30,18 @@ $game ->player['Mike']->setBus('8');
 $game ->player['Mike']->setTaxi('12');
 $game ->player['Mike']->setTurns('28');
 $game->player['Mike']->show();
-
 $game -> create('player', 'Cheikh');
 $game ->player['Cheikh']->setUnderground('4');
 $game ->player['Cheikh']->setBus('8');
 $game ->player['Cheikh']->setTaxi('11');
 $game ->player['Cheikh']->setTurns('28');
 $game->player['Cheikh']->show();
-
 $game -> create('player', 'Eric');
 $game ->player['Eric']->setUnderground('4');
 $game ->player['Eric']->setBus('8');
 $game ->player['Eric']->setTaxi('11');
 $game ->player['Eric']->setTurns('28');
 $game->player['Eric']->show();
-
 // Mr. X tickets are from the discard pile? I think...?
 // I just gave him same as players for now.
 $game -> create('mrx', 'unknown');
@@ -51,4 +50,3 @@ $game ->mrx['unknown']->setBus('8');
 $game ->mrx['unknown']->setTaxi('11');
 $game ->mrx['unknown']->setTurns('28');
 $game->mrx['unknown']->show();
-
