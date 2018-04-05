@@ -6,22 +6,89 @@
  * Time: 3:00 PM
  */
 // mrx is child class of Abstract_Character, anything both type of characters do
-// should go in there.
-class mrx extends Abstract_Character {
-    // seperate move function for Mr. X?
-    public function __construct(Game $g, $name){
-        $this ->_name = $name;
-        echo "Mr X {$this->_name} Created:<br>";
+// should go in there. 
+class Mrx extends AbstractData{ 
+    
+    /**
+    * @var int number of black tickets.
+    */
+    public $blackTicket;
+    
+    /**
+    * @var int number of double tickets.
+    */
+    public $double; 
+    
+    /**
+    * @var associative array for the travel log of Mr X.
+    */
+    private $travelLog;
+    
+    /**
+    * @param number of taxi tickets, number of bus tickets, number of train tickets and number of black tickets of Mr. X
+    */
+    public function __construct($name, $taxi, $bus, $train, $blackTicket){
+        
+        /**
+        * @param name, number of taxi tickets, number of bus tickets, number of train tickets of the parent constructor
+        */
+        parent::__construct($name, $taxi, $bus, $train);
+        
+        $this->name = 'MrX';
+        $this->blackTicket = $blackTicket;
+        $this->double = 2; 
+        $this->travelLog = array(); 
     }
-    public function double_move(){
-        echo "Go go gadget shoes!";
-        //mrx moves twice in a row...
+    
+    /**
+    * @param the new position and the vehicle that Mr. X takes to move on the new location.
+    */
+    public function move($newPosition, $ticket){
+        $this->position = $newPosition; 
+        
+        //If Mr. X took a taxi
+        if(strcmp($ticket, 'taxi')){
+            $this->taxi --;
+            $this->travelLog[$newPosition] = 'taxi';
+        }
+        //If Mr. X took a bus
+        elseif(strcmp($ticket, 'bus')){
+            $this->bus --;
+            $this->travelLog[$newPosition] = 'bus';
+        }
+        //If Mr. X took a train
+        elseif(strcmp($ticket, 'train')){
+            $this->train --;
+            $this->travelLog[$newPosition] = 'train';
+        }
+        //If Mr. X took a boat
+        elseif(strcmp($ticket, 'boat')){
+            $this->blackTicket --;
+            $this->travelLog[$newPosition] = 'blackTicket';
+        }
+        //If Mr. X uses a black ticket. In this case we don't know what vehicle he took so we just put blackTicket on the travel log
+        elseif(strcmp($ticket, 'blackTicket')){
+            $this->blackTicket --;
+            $this->travelLog[$newPosition] = 'blackTicket';
+        }
     }
-    public function location_type(){
-        echo "I took a (movement type) here";
-        // print to travel log on screen
+    
+    /**
+    * @param the new positions of Mr. X
+    */
+    public function doubleMove($position1, $ticket1, $position2, $ticket2){
+        $this->move($position1, $ticket1);
+        $this->move($position2, $ticket2);
+        $this->position = $position2;
+        $this->double --;
     }
-    public function use_hide(){
-        echo "Mr. X uses obscures his movements with a smoke bomb!";
+    
+    /**
+    * @return an associative array that represents Mr. X's travel log
+    */
+    public function getTravelLog(){
+        return $this->travelLog;
     }
+
+
 }
