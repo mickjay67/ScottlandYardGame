@@ -1,54 +1,107 @@
 <?php
-// READ ME:
-//Index file-- create Players, and call new Game
-//Game file-- Game state/loop (eventually), Player creation
-//Abstract_Character-- Parent Class for player and mrx
-//player-- User character
-//mrx-- NPC character
-//map-generator file-- Stuff I found (didn't write) thought it might be useful if we
-//wanted to go procedural generation route. We *could* create one giant table like that
-//filled with map-tile objects.
-include 'Abstract_Character.php';
-/**
- * Created by PhpStorm.
- * User: Eric
- * Date: 3/27/2018
- * Time: 3:03 PM
- */
-include 'game.php';
-include 'player.php';
-include 'mrx.php';
-//include 'map-generator/map-generator.php';
-echo "What's up? Gotta start somewhere.<br><br>";
-$game = new Game();
-echo "<br>";
-$game -> create('player', 'Mike');
-$game ->player['Mike']->setUnderground('4');
-$game ->player['Mike']->setBus('8');
-$game ->player['Mike']->setTaxi('12');
-$game ->player['Mike']->setTurns('28');
-$game->player['Mike']->show();
+	//session_start();
+	//include 'abstractData.php';
+	include_once 'mrx.php';
+	include_once 'player.php'; 
 
-$game -> create('player', 'Cheikh');
-$game ->player['Cheikh']->setUnderground('4');
-$game ->player['Cheikh']->setBus('8');
-$game ->player['Cheikh']->setTaxi('11');
-$game ->player['Cheikh']->setTurns('28');
-$game->player['Cheikh']->show();
+	
 
-$game -> create('player', 'Eric');
-$game ->player['Eric']->setUnderground('4');
-$game ->player['Eric']->setBus('8');
-$game ->player['Eric']->setTaxi('11');
-$game ->player['Eric']->setTurns('28');
-$game->player['Eric']->show();
+	$doc = new DOMDocument();
+	@$doc->loadHTMLFile("map.php"); 
 
-// Mr. X tickets are from the discard pile? I think...?
-// I just gave him same as players for now.
-$game -> create('mrx', 'unknown');
-$game ->mrx['unknown']->setUnderground('4');
-$game ->mrx['unknown']->setBus('8');
-$game ->mrx['unknown']->setTaxi('11');
-$game ->mrx['unknown']->setTurns('28');
-$game->mrx['unknown']->show();
+	// gets all AREAs
+	$areas = $doc->getElementsByTagName('area');
 
+	if (!isset($_SESSION['mrx'])) {
+		
+		$_SESSION['mrx'] = new Mrx("MrX", 4, 3, 5, 7);  
+
+		// traverse the object with all areas
+		foreach($areas as $area){
+		  // if the current $area has ID attribute, gets and outputs the ID and content
+		  	if($area->hasAttribute('id')) {
+			    $station = $area->getAttribute('id');
+			    //$cnt = $area->nodeValue;
+			    if ($station == $_SESSION['mrx']->getPosition()) {
+			    	$_SESSION['stationMrx'] = $station;
+			    	$_SESSION['linesMrx'] = $area->getAttribute('target');
+			    	$_SESSION['nodesMrx'] = $area->getAttribute('alt'); 
+			    	break;
+			    }
+		  	}
+		}
+
+		$_SESSION['mrxTurn'] = True; 
+	
+
+		$card = new Card();
+		$_SESSION['d1Turn'] = False; 
+		$_SESSION['d2Turn'] = False; 
+		$_SESSION['d3Turn'] = False; 
+		$_SESSION['d4Turn'] = False; 
+		$_SESSION['d5Turn'] = False; 
+		$_SESSION['d6Turn'] = False; 
+		$_SESSION['d1'] = new Player("Detective 1", 4, 3, 5, 7); 
+		$_SESSION['d1']->setPosition($card->getCard()); 
+		$_SESSION['d2'] = new Player("Detective 2", 4, 3, 5, 7);
+		$_SESSION['d2']->setPosition($card->getCard()); 
+		$_SESSION['d3'] = new Player("Detective 3", 4, 3, 5, 7);
+		$_SESSION['d3']->setPosition($card->getCard()); 
+		$_SESSION['d4'] = new Player("Detective 4", 4, 3, 5, 7);
+		$_SESSION['d4']->setPosition($card->getCard()); 
+		$_SESSION['d5'] = new Player("Detective 5", 4, 3, 5, 7);
+		$_SESSION['d5']->setPosition($card->getCard()); 
+		$_SESSION['d6'] = new Player("Detective 6", 4, 3, 5, 7);
+		$_SESSION['d6']->setPosition($card->getCard());  
+		// traverse the object with all areas
+
+		foreach($areas as $area) {
+		  // if the current $area has ID attribute, gets and outputs the ID and content
+		  	if($area->hasAttribute('id')) {
+			    $station = $area->getAttribute('id');
+			    //$cnt = $area->nodeValue;
+			    if ($station == $_SESSION['d1']->getPosition()) { 
+					$_SESSION['stationD1'] = $station;
+			    	$_SESSION['linesD1'] = $area->getAttribute('target');
+			    	$_SESSION['nodesD1'] = $area->getAttribute('alt'); 
+			    }
+
+			    if ($station == $_SESSION['d2']->getPosition()) { 
+					$_SESSION['stationD2'] = $station;
+			    	$_SESSION['linesD2'] = $area->getAttribute('target');
+			    	$_SESSION['nodesD2'] = $area->getAttribute('alt'); 
+			    }
+
+			    if ($station == $_SESSION['d3']->getPosition()) { 
+					$_SESSION['stationD3'] = $station;
+			    	$_SESSION['linesD3'] = $area->getAttribute('target');
+			    	$_SESSION['nodesD3'] = $area->getAttribute('alt'); 
+			    }
+
+			    if ($station == $_SESSION['d4']->getPosition()) { 
+					$_SESSION['stationD4'] = $station;
+			    	$_SESSION['linesD4'] = $area->getAttribute('target');
+			    	$_SESSION['nodesD4'] = $area->getAttribute('alt'); 
+			    }
+
+			    if ($station == $_SESSION['d5']->getPosition()) { 
+					$_SESSION['stationD5'] = $station;
+			    	$_SESSION['linesD5'] = $area->getAttribute('target');
+			    	$_SESSION['nodesD5'] = $area->getAttribute('alt'); 
+			    }
+
+			    if ($station == $_SESSION['d6']->getPosition()) { 
+					$_SESSION['stationD6'] = $station;
+			    	$_SESSION['linesD6'] = $area->getAttribute('target');
+			    	$_SESSION['nodesD6'] = $area->getAttribute('alt'); 
+			    }
+
+			    if (isset($_SESSION['stationD1']) AND isset($_SESSION['stationD2']) AND isset($_SESSION['stationD3']) AND isset($_SESSION['stationD4']) AND isset($_SESSION['stationD5']) AND isset($_SESSION['stationD6'])) {
+			    	break;
+			    }
+		  	}
+		} 
+	}	
+	
+	//header('Location: game.php');
+	?>
