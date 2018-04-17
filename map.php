@@ -1,77 +1,13 @@
-<?php include 'index1.php'?>
 <!DOCTYPE html>
 <html>
 	<head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<title>Test SVG</title>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<link type="text/css" rel="stylesheet" href="map.css">
 	</head>
 	<body>
-	<!--<div id="logo">-->
-		<!--<img src="ScotlandYard.jpg">-->
-	<!--</div>-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Scotland Yard</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Message? <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Rules </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">History </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Taxi
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Option 1</a>
-                        <a class="dropdown-item" href="#">Option 2</a>
-                        <a class="dropdown-item" href="#">Option 3</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Bus
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Option 1</a>
-                        <a class="dropdown-item" href="#">Option 2</a>
-                        <a class="dropdown-item" href="#">Option 3</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Underground
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Option 1</a>
-                        <a class="dropdown-item" href="#">Option 2</a>
-                        <a class="dropdown-item" href="#">Option 3</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-	<div id="game_box">
-		<textarea id="travel_box" name="travel_log" rows="52" cols="90" style="align-self: left">
-            <?php
-            mrX_Info($mrx);
-            playerOne_Info($mrx, $d1);
-            ?>
-        </textarea>
+
 		<img src="map.jpg" width="1600" height="1200" border="0" usemap="#map" />
-	</div>
+
 		<map name="map">
 			<area shape="circle" coords="197,89,14" alt="8t-9t-58b-46b-46s" target="1t 1b 1s" id="1"  />
 			<area shape="circle" coords="462,66,15" alt="20t-10t" target="2t" id="2" />
@@ -85,8 +21,8 @@
 			<area shape="circle" coords="548,142,13" alt="2t-11t-34t-21t" target="10t" id="10" />
 			<area shape="circle" coords="627,156,14" alt="3t-10t-22t" target="11t" id="11" />
 			<area shape="circle" coords="692,143,14" alt="3t-23t" target="12t" id="12" />
-			<area shape="circle" coords="813,135,14" alt="4t-23t-23b-14t-14b-46s-89s" target="13t 13b 13s" id="13" />
-			<area shape="circle" coords="936,111,14" alt="13t-25t-15t" target="14t" id="14" />
+			<area shape="circle" coords="813,135,14" alt="4t-23t-23b-14t-14b-52b-46s-89s" target="13t 13b 13s" id="13" />
+			<area shape="circle" coords="936,111,14" alt="13t-25t-15t-13b-14b" target="14t" id="14" />
 			<area shape="circle" coords="1063,98,13" alt="5t-26t-14t-14b-28t-16t-41b-29b" target="15t 15b" id="15" />
 			<area shape="circle" coords="1184,139,13" alt="5t-28t-29t" target="16t" id="16" />
 			<area shape="circle" coords="1411,178,13" alt="7t-30t-29t" target="17t" id="17" />
@@ -101,12 +37,12 @@
 			<area shape="circle" coords="1056,137,13" alt="15t-27t-39t" target="26t" id="26" />
 			<area shape="circle" coords="1075,196,13" alt="26t-28t-40t" target="27t" id="27" />
 			<area shape="circle" coords="1121,173,13" alt="15t-27-16-41t" target="28t" id="28" />
-			<area shape="circle" coords="1293,208,13" alt="6t-16t-15b-41t-41b-17t-42t-42b" target="29t" id="29" />
+			<area shape="circle" coords="1293,208,13" alt="6t-16t-15b-41t-41b-17t-42t-42b-55b" target="29t" id="29" />
 			<area shape="circle" coords="1456,196,13" alt="17t-42t" target="30t" id="30" />
 			<area shape="circle" coords="122,244,13" alt="18t-43t-44t" target="31t" id="31" />
 			<area shape="circle" coords="260,276,13" alt="19t-44t-33t-45t" target="32t" id="32" />
 			<area shape="circle" coords="372,258,13" alt="21t-20t-23t-46t" target="33t" id="33" />
-			<area shape="circle" coords="555,275,14" alt="10t-47t-48t-22t- 22b" target="34t 34b" id="34" />
+			<area shape="circle" coords="555,275,14" alt="10t-47t-48t-22t-22b-63b" target="34t 34b" id="34" />
 			<area shape="circle" coords="664,303,13" alt="22t-48t-36t-65t" target="35t" id="35" />
 			<area shape="circle" coords="708,311,13" alt="35t-37t-49t" target="36t" id="36" />
 			<area shape="circle" coords="780,246,14" alt="23t-24t-50t-36t" target="37t" id="37" />
@@ -177,7 +113,7 @@
 			<area shape="circle" coords="911,471,14" alt="83t-103t-115t-67b-86b-127b" target="102t 102b" id="102" />
 			<area shape="circle" coords="994,461,13" alt="85t-86t-102t" target="103t" id="103" />
 			<area shape="circle" coords="1083,503,12" alt="86t-116t" target="104t" id="104" />
-			<area shape="circle" coords="1317,520,13" alt="89t-90t-91t106t-118t-72b-89b-107b-87b-118b" target="105t 105b" id="105" />
+			<area shape="circle" coords="1317,520,13" alt="89t-90t-91t-106t-118t-72b-89b-107b-87b-118b" target="105t 105b" id="105" />
 			<area shape="circle" coords="1410,537,12" alt="105t-107t" target="106t" id="106" />
 			<area shape="circle" coords="1475,536,12" alt="91t-106t-119t-72b-105b-161b" target="107t 107b" id="107" />
 			<area shape="circle" coords="480,638,14" alt="96t-97t-110t-124t" target="109t" id="109" />
@@ -268,30 +204,44 @@
 			<area shape="circle" coords="565,1071,12" alt="182t-194t-197t" target="195t" id="195" />
 			<area shape="circle" coords="654,1018,12" alt="183t-197t-184t" target="196t" id="196" />
 			<area shape="circle" coords="667,1078,13" alt="196t-195t-184t" target="197t" id="197" />
-			<area shape="circle" coords="853,1054,14" alt="184t-170t-186t-184b-187b" target="185t 185b 185s" id="185" />
+			
 			<area shape="circle" coords="946,1034,13" alt="185t-171t-198t" target="186t" id="186" />
 			<area shape="circle" coords="1004,1130,13" alt="171t-186t-187t-199t" target="198t" id="198" />
 			<area shape="circle" coords="1234,1124,13" alt="159b-188t-198t-200t-161b" target="199t 199b" id="199" />
 			<area shape="circle" coords="1319,1101,12" alt="173t-199t-175t" target="200t" id="200" />
 		</map>
 
-
-
-
+		
 		<script>  
  
 			$(document).ready(function(){ 
 				for (i=0; i<200; i++) {
+
 					b='#'+i;
+
 					$(b).click(function(){ 
 						station = this.id;
 						lines = this.target;
 						nodes = this.alt;
 
+						document.getElementById('station').value = station;
+						document.getElementById('lines').value = lines;
+						document.getElementById('nodes').value = nodes;
+						document.getElementById("myForm").submit();
 							alert("Station : " + station + "\nLines : " + lines + "\nNodes : "+nodes);
-						});
+					});
 				}
 			});
 		</script>
+		<?php 
+		include_once 'moveImg.php';
+		
+		?>
+		<form id="myForm" method="POST" action="game.php">
+			<input type="hidden" name="station" id="station" value="">
+			<input type="hidden" name="lines" id="lines" value="">
+			<input type="hidden" name="nodes" id="nodes" value="">
+		</form>
+
 	</body>
 </html>

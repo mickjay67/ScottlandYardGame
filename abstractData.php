@@ -49,6 +49,10 @@ class AbstractData{
     public function getPosition(){
         return $this->position;
     }
+
+    public function setPosition($newPosition){
+        $this->position = $newPosition;
+    }
 }
 
 
@@ -66,7 +70,7 @@ class Card{
 
     public function __construct(){ 
 
-        $this->cards = [155, 103, 29, 50, 174, 132, 94, 13, 197, 138, 112, 26, 91, 141, 198, 117, 34, 53];       
+        $this->cards = array(155, 103, 29, 50, 174, 132, 94, 13, 197, 138, 112, 26, 91, 141, 198, 117, 34, 53);       
     }   
         
     /**

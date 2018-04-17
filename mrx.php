@@ -1,4 +1,6 @@
 <?php
+include_once 'abstractData.php';
+
 /**
  * Created by PhpStorm.
  * User: Eric
@@ -90,5 +92,5 @@ class Mrx extends AbstractData{
         return $this->travelLog;
     }
 
-
 }
+?>
